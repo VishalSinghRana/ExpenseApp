@@ -19,6 +19,11 @@ async def create_user(user: User):
     return {**user_data, "id": user_id}
 
 
+@expense_app.get("/users", response_model=List[User])
+async def get_all_users():
+    users = list(user_collection.find())
+    return users
+
 @expense_app.get("/users/{user_id}", response_model=User)
 async def get_user_by_id(user_id: str):
     user = user_collection.find_one({"_id": ObjectId(user_id)})
@@ -143,7 +148,4 @@ async def get_balances_for_user(user_id: str):
     return balances_response
 
 
-@expense_app.get("/users", response_model=List[User])
-async def get_all_users():
-    users = list(user_collection.find())
-    return users
+
