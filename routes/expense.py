@@ -141,3 +141,9 @@ async def get_balances_for_user(user_id: str):
             balances_response.append({"description": description})
 
     return balances_response
+
+
+@expense_app.get("/users", response_model=List[User])
+async def get_all_users():
+    users = list(user_collection.find())
+    return users

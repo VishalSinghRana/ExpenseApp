@@ -34,6 +34,6 @@ pip install -r requirement.txt
 ``` 
 
 In the Expense there are 3 sub folder (4th one being venv(virtual environment)).
-*Config contains our DB connection.
-*Models contains the schema's.
-*Routes contain the respective Routes
+* Config contains our DB connection.
+* Models contains the schema's.
+* Routes contain the respective Routes
